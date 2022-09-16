@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Figure from "./components/Figure";
 import Header from "./components/Header";
 import Notification from "./components/Notification";
@@ -8,17 +8,24 @@ import Word from "./components/Word";
 import WrongLetters from "./components/WrongLetters";
 import { showNotification as show } from "./helpers/helpers";
 import Confetti from 'react-confetti'
+import Form from "./components/Form";
 
 
-const words = ["milk", "cookie", "noodle", "chips", "chicken", "joelle", "jolene", "lexie", "alexa", "uncle", "breakfast", "dinner", "cheese", 'fish', 'mummy', 'daddy', "snow", 'cat', 'dogs', 'pizza', 'clock', 'holiday', 'school', 'nana', 'amah', 'bird', 'ball', 'kite', 'water', 'chocolate', 'books', 'television', 'dinner', 'lunch', 'munch', 'crunch', 'milk', 'cheok', 'puddle', 'peppa', 'spaghetti', 'bread', 'draw', 'pink', 'purple', 'green', 'turquoise', 'fairy', 'mermaid', 'bottom', 'toilet', 'bath', 'nuts', 'eggs', 'carrot', 'cabbage', 'sprinkle', 'party', 'presents', 'birthday', 'tent', 'grass', 'black', 'red', 'duck', 'ghost', 'monster', 'boots', 'shoes', 'elsa', 'anna', 'olaf', 'teddy', 'puppet', 'swim', 'slide', 'swing'];
+
+
+const words = ["milk", "cookie", "noodle", "chips", "chicken", "joelle", "jolene", "lexie", "alexa", "uncle", "breakfast", "dinner", "cheese", 'fish', 'mummy', 'daddy', "snow", 'cat', 'dogs', 'pizza', 'clock', 'holiday', 'school', 'nana', 'amah', 'bird', 'ball', 'kite', 'water', 'chocolate', 'books', 'television', 'dinner', 'lunch', 'munch', 'crunch', 'milk', 'cheok', 'puddle', 'peppa', 'spaghetti', 'bread', 'draw', 'pink', 'purple', 'green', 'turquoise', 'fairy', 'mermaid', 'bottom', 'toilet', 'bath', 'nuts', 'eggs', 'carrot', 'cabbage', 'sprinkle', 'party', 'presents', 'birthday', 'tent', 'grass', 'black', 'red', 'duck', 'ghost', 'monster', 'boots', 'shoes', 'elsa', 'anna', 'olaf', 'teddy', 'puppet', 'swim', 'slide', 'swing', 'fat', 'big', 'mat', 'puppy', 'hair', 'shoes', 'boots', 'karen','joseph','jonnevie','hengky', 'yellow', 'candy', 'water', 'wiggle', 'fries', 'pasta', 'shower', 'toilet', 'giggle', 'fox', 'box', 'mouse'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
+
 function App() {
+
+
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [userWord, setUserWord] = useState("");
 
   useEffect(() => {
     const handleKeydown = (event) => {
@@ -56,10 +63,12 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {/* <Form userWord={userWord}/> */}
       <div className="game-container">
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+
       </div>
       <Popup
         correctLetters={correctLetters}

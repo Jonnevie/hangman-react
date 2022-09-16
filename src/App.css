@@ -11,7 +11,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
+  justify-content: center;
+  height: 90vh;
   margin: 0;
   overflow: hidden;
 }
@@ -81,12 +82,11 @@ button {
   justify-content: center;
   margin: 0 3px;
   height: 50px;
-  width: 20px;
+  width: 25px;
 }
 
 .popup-container {
   background-color: rgba(0, 0, 0, 0.2);
-
   position: fixed;
   top: 0;
   bottom: 0;
@@ -145,4 +145,37 @@ button {
 
 .notification-container.show {
   transform: translateY(-50px);
+}
+
+@media only screen and (min-width: 360px) and (max-width: 450px) {
+	#header-p{
+    font-size: 0.8rem;
+  }
+  .game-container{
+    display: grid;
+    grid-template-areas: 'wrongword'
+    'svg';
+  }
+  .wrong-letters-container {
+    grid-area: wrongword;
+  }
+  .figure-container {
+    grid-area: svg
+  ;
+  }
+  .game-container{
+    height: 550px;
+  }
+  .popup {
+    width: 350px;
+    margin: 0 !important;
+  }
+}
+
+button:hover {
+transform: scale(1.1);
+}
+
+#cheoklette{
+  margin-bottom: -30px;
 }

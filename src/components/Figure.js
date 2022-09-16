@@ -5,21 +5,21 @@ const Figure = ({wrongLetters}) => {
         <>
         <svg height="250" width="200" className="figure-container">
         {/* <!-- Rod --> */}
-        <line x1="60" y1="20" x2="140" y2="20" />
-        {errors >0 && <line x1="140" y1="20" x2="140" y2="50" />}
-        <line x1="60" y1="20" x2="60" y2="230" />
-    <line x1="20" y1="230" x2="230" y2="230" />
+        {errors > 2 && <line x1="60" y1="20" x2="140" y2="20" />}
+        {errors >3 && <line x1="140" y1="20" x2="140" y2="50" />}
+        {errors > 1 && <line x1="60" y1="20" x2="60" y2="230" />}
+    {errors >0  && <line x1="20" y1="230" x2="230" y2="230" />}
 
         {/* <!-- Head --> */}
-        {errors > 1 && <circle cx="140" cy="70" r="20" />}
+        {errors > 4 && <circle cx="140" cy="70" r="20" />}
         {/* <!-- Body --> */}
-        {errors > 2 && <line x1="140" y1="90" x2="140" y2="150"  />}
+        {errors > 5 && <line x1="140" y1="90" x2="140" y2="150"  />}
         {/* <!-- Arms --> */}
-        {errors > 3 &&  <line x1="140" y1="120" x2="120" y2="100" />}
-        {errors > 4 && <line x1="140" y1="120" x2="160" y2="100"/>}
+        {errors > 6 &&  <line x1="140" y1="120" x2="120" y2="100" />}
+        {errors > 7 && <line x1="140" y1="120" x2="160" y2="100"/>}
         {/* <!-- Legs --> */}
-        {errors > 5 && <line x1="140" y1="150" x2="120" y2="180"/>}
-        {errors > 6 &&  <line x1="140" y1="150" x2="160" y2="180"/>}
+        {errors > 8 && <line x1="140" y1="150" x2="120" y2="180"/>}
+        {errors > 9 &&  <line x1="140" y1="150" x2="160" y2="180"/>}
       </svg>
         </>
      );

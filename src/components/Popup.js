@@ -4,7 +4,6 @@ import Confetti from 'react-confetti'
 
 
 
-
 const Popup = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAgain}) => {
     let throwConfetti = false
     let finalMessage = '';
@@ -12,35 +11,52 @@ const Popup = ({correctLetters, wrongLetters, selectedWord, setPlayable, playAga
     let emoji = "";
     let playable = true
 if(checkWin(correctLetters, wrongLetters, selectedWord) === 'win'){
-    emoji = "😃😃😃"
+    emoji = "🎉🎉🎉"
     finalMessage = `Congratulations! You won!`;
-    finalMessageRevealWord = `How did you know that the word was ${selectedWord}?`
+    finalMessageRevealWord = `How did you know that the word was ${selectedWord.toUpperCase()}?`
     playable = false;
     throwConfetti = true;
 } else if (checkWin(correctLetters, wrongLetters, selectedWord) === 'lose' ){
     emoji = "🥺🥺🥺"
     finalMessage = 'Good try, but unfortunately,';
-    finalMessageRevealWord = `... the word was ${selectedWord}.`;
+    finalMessageRevealWord = `... the word was ${selectedWord.toUpperCase()}.`;
     playable = false;
 }
 
-useEffect(()=>{
+useEffect(()=>{                
     setPlayable(playable)
 })
+
+useEffect(()=>{
+    document.addEventListener('keypress',(e)=>{
+        if(e.key === 'Enter') {
+           playAgain() 
+        }
+    })
+    return document.removeEventListener('keypress',(e)=>{
+        if(e.key === 'Enter') {
+           playAgain() 
+        }
+    })
+},[playable])
+
 
     return ( 
         <>
         
-        <div className="popup-container" style={finalMessage !== "" ? {display:'flex'} : {}}>
+        <div className="popup-container" style={finalMessage !== "" ? {display:'flex'} : {}} >
         {throwConfetti && <Confetti 
       width={2000}
       height={1000}
       />}
       <div className="popup">
-        <h2>{emoji}</h2>
+        
+            <h2>{emoji}</h2>
         <h2>{finalMessage}</h2>
         <h3>{finalMessageRevealWord}</h3>
         <button onClick={playAgain}>Play Again</button>
+    
+        
       </div>
     </div>
         </>
