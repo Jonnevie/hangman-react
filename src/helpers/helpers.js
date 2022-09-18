@@ -18,3 +18,10 @@ export function checkWin(correct, wrong, word) {
     if(wrong.length === 11) status = 'lose'
     return status;
 }
+export function addEnter({playAgain}){
+    document.addEventListener('keypress',(e)=>{
+        if(e.key === 'Enter') {
+           playAgain() 
+        }
+    })
+}

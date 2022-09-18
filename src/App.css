@@ -3,6 +3,15 @@
 * {
   box-sizing: border-box;
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: pink;
+  opacity: 1; /* Firefox */
+}
+
+input:focus {
+  outline: none !important;
+background-color: white;
+}
 
 body {
   background-color: pink;
@@ -25,6 +34,11 @@ h1 {
 #header-p {
   text-align: center;
   font-size: 1.5rem;
+}
+
+#header-message{
+  text-align: center;
+  margin-top: -30px;
 }
 
 .game-container {
@@ -147,29 +161,33 @@ button {
   transform: translateY(-50px);
 }
 
-@media only screen and (min-width: 360px) and (max-width: 450px) {
-	#header-p{
-    font-size: 0.8rem;
-  }
-  .game-container{
-    display: grid;
-    grid-template-areas: 'wrongword'
-    'svg';
-  }
-  .wrong-letters-container {
-    grid-area: wrongword;
-  }
-  .figure-container {
-    grid-area: svg
-  ;
-  }
-  .game-container{
-    height: 550px;
-  }
-  .popup {
-    width: 350px;
-    margin: 0 !important;
-  }
+#chooseWordDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#user_word {
+  border: none;
+  margin: 10px;
+  padding: 13px;
+  font-family: "Schoolbell";
+  font-size: 1.2rem;
+  color: palevioletred;
+}
+
+#chooseWordButton {
+  border: 3px solid white;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: pink;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 430px) {
+body {
+  display: none;
+}
 }
 
 button:hover {
