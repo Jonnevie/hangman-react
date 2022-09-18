@@ -130,7 +130,7 @@ function App() {
     console.log("handleSubmit ran");
     e.preventDefault(); // 👈️ prevent page refresh
     const formInput = document.getElementById('user_word');
-setUserWord(formInput.value);
+setUserWord((formInput.value).toLowerCase());
     // 👇️ access input values here
 //     console.log("userWord 👉️", userWord);
 // console.log("enteredWord", enteredWord)
