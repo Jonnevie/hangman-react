@@ -125,6 +125,7 @@ function App() {
   const[showForm, setShowForm] = useState(false)
 
 
+  
 
   const handleSubmit = (e) => {
     console.log("handleSubmit ran");
@@ -136,6 +137,9 @@ setUserWord((formInput.value).toLowerCase());
 // console.log("enteredWord", enteredWord)
 setCorrectLetters([]);
 setWrongLetters([]);
+setShowForm(false);
+
+
     // // 👇️ clear all input values in the form
     // setUserWord("");
   };
