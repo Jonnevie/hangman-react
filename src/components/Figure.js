@@ -1,8 +1,9 @@
-const Figure = ({wrongLetters}) => {
+const Figure = ({wrongLetters, showForm}) => {
     const errors = wrongLetters.length;
 
     return ( 
-        <>
+      
+        <div  style={showForm === true ? {display:"none"}  : { display: "initial" }}>
         <svg height="250" width="200" className="figure-container">
         {/* <!-- Rod --> */}
         {errors > 2 && <line x1="60" y1="20" x2="140" y2="20" />}
@@ -21,7 +22,7 @@ const Figure = ({wrongLetters}) => {
         {errors > 8 && <line x1="140" y1="150" x2="120" y2="180"/>}
         {errors > 9 &&  <line x1="140" y1="150" x2="160" y2="180"/>}
       </svg>
-        </>
+        </div>
      );
 }
  

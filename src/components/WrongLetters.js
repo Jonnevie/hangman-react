@@ -1,7 +1,7 @@
-const WrongLetters = ({wrongLetters}) => {
+const WrongLetters = ({wrongLetters, showForm}) => {
   return (
     <>
-      <div className="wrong-letters-container">
+      <div className="wrong-letters-container"  style={showForm === true ? {display:"none"}  : { display: "initial" }}>
         <div>
           {wrongLetters.length > 0 && <p>Not in the Word</p>}
           {wrongLetters

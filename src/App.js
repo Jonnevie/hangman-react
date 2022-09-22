@@ -125,23 +125,13 @@ function App() {
   const[showForm, setShowForm] = useState(false)
 
 
-  
-
   const handleSubmit = (e) => {
-    console.log("handleSubmit ran");
     e.preventDefault(); // 👈️ prevent page refresh
     const formInput = document.getElementById('user_word');
 setUserWord((formInput.value).toLowerCase());
-    // 👇️ access input values here
-//     console.log("userWord 👉️", userWord);
-// console.log("enteredWord", enteredWord)
 setCorrectLetters([]);
 setWrongLetters([]);
-setShowForm(false);
-
-
-    // // 👇️ clear all input values in the form
-    // setUserWord("");
+  // setShowForm(false);
   };
 
   useEffect(() => {
@@ -152,16 +142,20 @@ setShowForm(false);
     }
   }, [userWord]);
 
+
+  
+
   useEffect(() => {
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
       if(keyCode === 187 ){
-        setShowForm(true)
+        setShowForm(true);
+        
       } if( keyCode === 189){
-        setShowForm(false)
+        setShowForm(false);
       }
 
-      if (playable && keyCode >= 65 && keyCode <= 90) {
+      if (playable && !showForm && keyCode >= 65 && keyCode <= 90) {
         const letter = key.toLowerCase();
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
@@ -182,6 +176,8 @@ setShowForm(false);
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [correctLetters, wrongLetters, playable]);
 
+
+
   function playAgain() {
     setPlayable(true);
     setCorrectLetters([]);
@@ -198,18 +194,19 @@ setShowForm(false);
       <div id="chooseWordDiv">
         <form id="chooseWordForm">
           <input
-          placeholder="press - to hide"
+          placeholder="enter word"
             id="user_word"
             onChange={(e) => enteredWord = (e.target.value)}
           />
           <button id="chooseWordButton" type="submit" onClick={handleSubmit}>Choose Word</button>
+          <p>press choose word then press - to hide</p>
         </form>
       </div>
 }
       <div className="game-container">
-        <Figure wrongLetters={wrongLetters} />
-        <WrongLetters wrongLetters={wrongLetters} />
-        <Word selectedWord={selectedWord} correctLetters={correctLetters} />
+        <Figure wrongLetters={wrongLetters} showForm={showForm}/>
+        <WrongLetters wrongLetters={wrongLetters} showForm={showForm}/>
+        <Word selectedWord={selectedWord} correctLetters={correctLetters} showForm={showForm}/>
       </div>
       <Popup
         correctLetters={correctLetters}
