@@ -7,6 +7,7 @@ import Popup from "./components/Popup";
 import Word from "./components/Word";
 import WrongLetters from "./components/WrongLetters";
 import { addEnter, showNotification as show } from "./helpers/helpers";
+import MyKeyboard from "./components/Keyboard";
 
 import Form from "./components/Form";
 
@@ -188,7 +189,7 @@ setWrongLetters([]);
 
   return (
     <div className="App">
-      <Header showForm={showForm}/>
+      <Header showForm={showForm} setShowForm={setShowForm}/>
       {/* <Form userWord={userWord} setUserWord={setUserWord} /> */}
       {showForm && 
       <div id="chooseWordDiv">
@@ -199,7 +200,8 @@ setWrongLetters([]);
             id="user_word"
             onChange={(e) => enteredWord = (e.target.value)}
           />
-          <button id="chooseWordButton" type="submit" onClick={handleSubmit}>Choose Word</button>
+          <button class="chooseWordButton" type="submit" onClick={handleSubmit}>Choose Word</button>
+      <button class="chooseWordButton" onClick={()=>{setShowForm(false)}}> -</button>
           <p>press choose word then press - to hide</p>
         </form>
       </div>
@@ -216,6 +218,14 @@ setWrongLetters([]);
         setPlayable={setPlayable}
         playAgain={playAgain}
       />
+<MyKeyboard correctLetters={correctLetters}
+setCorrectLetters={setCorrectLetters}
+setWrongLetters={setWrongLetters}
+        wrongLetters={wrongLetters}
+        selectedWord={selectedWord}
+        setShowNotification={setShowNotification}
+        showForm={showForm}/>
+
       <Notification showNotification={showNotification} />
     </div>
   );

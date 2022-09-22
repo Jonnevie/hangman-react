@@ -175,7 +175,7 @@ button {
   color: palevioletred;
 }
 
-#chooseWordButton {
+.chooseWordButton {
   border: 3px solid white;
   color: white;
   font-size: 1.2rem;
@@ -188,10 +188,14 @@ button {
   text-align: center;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 430px) {
-body {
+/* #mobileKeyboard{
   display: none;
-}
+} */
+
+@media only screen and (min-width: 300px) and (max-width: 430px) {
+  #mobileKeyboard{
+    display: contents;
+  }
 }
 
 button:hover {
@@ -202,6 +206,18 @@ transform: scale(1.1);
   color: pink;
 }
 
+.keyboard{
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard button {
+  font-size: 1.3rem;
+  color: pink;
+  padding: 10px;
+  border: none;
+  margin: 5px;
+}
 
 #cheoklette{
   margin-bottom: -30px;
