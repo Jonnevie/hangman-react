@@ -188,7 +188,7 @@ setWrongLetters([]);
 
   return (
     <div className="App">
-      <Header />
+      <Header showForm={showForm}/>
       {/* <Form userWord={userWord} setUserWord={setUserWord} /> */}
       {showForm && 
       <div id="chooseWordDiv">
