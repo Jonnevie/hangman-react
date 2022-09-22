@@ -194,6 +194,7 @@ setWrongLetters([]);
       <div id="chooseWordDiv">
         <form id="chooseWordForm">
           <input
+          autoComplete="off"
           placeholder="enter word"
             id="user_word"
             onChange={(e) => enteredWord = (e.target.value)}
