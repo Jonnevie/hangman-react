@@ -174,7 +174,7 @@ setWrongLetters([]);
     };
     window.addEventListener("keydown", handleKeydown);
     return () => window.removeEventListener("keydown", handleKeydown);
-  }, [correctLetters, wrongLetters, playable]);
+  }, [correctLetters, wrongLetters, playable, showForm]);
 
 
 
