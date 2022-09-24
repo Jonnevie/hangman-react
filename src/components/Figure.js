@@ -3,7 +3,7 @@ const Figure = ({wrongLetters, showForm}) => {
 
     return ( 
       
-        <div  style={showForm === true ? {display:"none"}  : { display: "initial" }}>
+        <div className="svgContainer" style={showForm === true ? {display:"none"}  : { display: "initial" }}>
         <svg height="250" width="200" className="figure-container">
         {/* <!-- Rod --> */}
         {errors > 2 && <line x1="60" y1="20" x2="140" y2="20" />}

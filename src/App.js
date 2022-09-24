@@ -126,14 +126,14 @@ function App() {
   const[showForm, setShowForm] = useState(false)
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // 👈️ prevent page refresh
-    const formInput = document.getElementById('user_word');
-setUserWord((formInput.value).toLowerCase());
-setCorrectLetters([]);
-setWrongLetters([]);
-  // setShowForm(false);
-  };
+//   const handleSubmit = (e) => {
+//     e.preventDefault(); // 👈️ prevent page refresh
+//     const formInput = document.getElementById('user_word');
+// setUserWord((formInput.value).toLowerCase());
+// setCorrectLetters([]);
+// setWrongLetters([]);
+//   // setShowForm(false);
+//   };
 
   useEffect(() => {
     if (userWord) {
@@ -143,6 +143,11 @@ setWrongLetters([]);
     }
   }, [userWord]);
 
+const handleClick = () => {
+  setCorrectLetters([]);
+setWrongLetters([]);
+  setShowForm(false);
+}
 
   
 
@@ -198,11 +203,11 @@ setWrongLetters([]);
           autoComplete="off"
           placeholder="enter word"
             id="user_word"
-            onChange={(e) => enteredWord = (e.target.value)}
+            onChange={(e)=>setUserWord((e.target.value).toLowerCase())}
           />
-          <button class="chooseWordButton" type="submit" onClick={handleSubmit}>Choose Word</button>
-      <button class="chooseWordButton" onClick={()=>{setShowForm(false)}}> -</button>
-          <p>press choose word then press - to hide</p>
+          <button class="chooseWordButton" type="submit" onClick={handleClick}>Choose Word</button>
+      {/* <button class="choos=eWordButton" onClick={()=>{setShowForm(false)}}> -</button> */}
+          {/* <p>press choose word then press - to hide</p> */}
         </form>
       </div>
 }
