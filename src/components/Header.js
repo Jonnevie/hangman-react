@@ -18,16 +18,15 @@ const Header = ({ showForm, setShowForm }) => {
         id="header-message"
         style={showForm === true ? { display: "none" } : { display: "block" }}
       >
-        or tap
+       
         <button
-          class="chooseWordButton"
+          class="clickHereButton"
           onClick={() => {
             setShowForm(true);
           }}
-          style={{ border: "none" }}
         >
           {" "}
-          +
+          Click Here
         </button>
         to choose a word.
       </p>

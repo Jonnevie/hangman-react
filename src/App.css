@@ -39,7 +39,7 @@ h1 {
 
 #header-message {
   text-align: center;
-  margin-top: -30px;
+  margin-top: -25px;
 }
 
 .game-container {
@@ -185,6 +185,13 @@ button {
   cursor: pointer;
 }
 
+.clickHereButton{
+  border: none;
+  background: pink;
+  color: white;
+  text-decoration: underline;
+  font-size: 1rem;
+}
 #chooseWordForm {
   text-align: center;
 }
@@ -218,6 +225,10 @@ button:hover {
   margin-bottom: -20px;
 }
 @media only screen and (min-width: 300px) and (max-width: 430px) {
+  
+#root{
+  align-items: center;
+}
   .notification-container {
     position: fixed;
   }
@@ -249,7 +260,7 @@ button:hover {
     margin-bottom: -10px;
   }
   #header-message {
-    margin-top: 4px;
+    margin-top: 10px;
     margin-bottom: 0px;
   }
 
@@ -274,5 +285,14 @@ button:hover {
 
   #mobileKeyboard {
     margin-top: 50px;
+  }
+
+  svg.figure-container{
+    height: 80%;
+  }
+
+
+  #chooseWordForm {
+    margin-top: 20px;
   }
 }
