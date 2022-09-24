@@ -1,24 +1,21 @@
 
-import { useState } from "react";
+const Form = ({setUserWord, handleClick }) => {
 
-const Form = ({userWord, setUserWord}) => {
-let enteredWord = "";
-
-    const handleClick = (e) => {
-        e.preventDefault();
-        const chooseWordForm = document.getElementById("chooseWordForm");
-        chooseWordForm.reset();
-    }
    
     return ( 
-        <>
-        <form id="chooseWordForm" onSubmit={setUserWord(enteredWord)}>
-        <input type="text" onChange={(e)=>{
-            enteredWord = (e.target.value)
-        }}/>
-        <button type="submit" onClick={handleClick}>Choose Word</button>
+
+     <div id="chooseWordDiv">
+        <form id="chooseWordForm">
+          <input
+          autoComplete="off"
+          placeholder="enter word"
+            id="user_word"
+            onChange={(e)=>setUserWord((e.target.value).toLowerCase())}
+          />
+          <button class="chooseWordButton" type="submit" onClick={handleClick}>Choose Word</button>
         </form>
-        </>
+      </div>
+     
      );
 }
  

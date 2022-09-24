@@ -126,15 +126,6 @@ function App() {
   const[showForm, setShowForm] = useState(false)
 
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault(); // 👈️ prevent page refresh
-//     const formInput = document.getElementById('user_word');
-// setUserWord((formInput.value).toLowerCase());
-// setCorrectLetters([]);
-// setWrongLetters([]);
-//   // setShowForm(false);
-//   };
-
   useEffect(() => {
     if (userWord) {
       selectedWord = userWord;
@@ -195,22 +186,7 @@ setWrongLetters([]);
   return (
     <div className="App">
       <Header showForm={showForm} setShowForm={setShowForm}/>
-      {/* <Form userWord={userWord} setUserWord={setUserWord} /> */}
-      {showForm && 
-      <div id="chooseWordDiv">
-        <form id="chooseWordForm">
-          <input
-          autoComplete="off"
-          placeholder="enter word"
-            id="user_word"
-            onChange={(e)=>setUserWord((e.target.value).toLowerCase())}
-          />
-          <button class="chooseWordButton" type="submit" onClick={handleClick}>Choose Word</button>
-      {/* <button class="choos=eWordButton" onClick={()=>{setShowForm(false)}}> -</button> */}
-          {/* <p>press choose word then press - to hide</p> */}
-        </form>
-      </div>
-}
+      {showForm && <Form setUserWord={setUserWord} handleClick={handleClick}/>}
       <div className="game-container">
         <Figure wrongLetters={wrongLetters} showForm={showForm}/>
         <WrongLetters wrongLetters={wrongLetters} showForm={showForm}/>
