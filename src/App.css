@@ -288,11 +288,19 @@ button:hover {
   }
 
   svg.figure-container{
-    height: 80%;
+    height: 90%;
   }
 
 
   #chooseWordForm {
     margin-top: 20px;
+  }
+
+  .wrong-letters-container{
+    width: 33%;
+  }
+
+  .popup{
+    width: 90%;
   }
 }

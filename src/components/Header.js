@@ -26,7 +26,7 @@ const Header = ({ showForm, setShowForm }) => {
           }}
         >
           {" "}
-          Click Here
+          Click here
         </button>
         to choose a word.
       </p>
